@@ -2412,7 +2412,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_FORM_CHANGE] =
     {
         .name = _("Form Change"),
-        .description = COMPOUND_STRING("Maps DNA forms onto its moves."),
+        .description = COMPOUND_STRING("Maps forms onto its moves."),
         .aiRating = 10,
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
