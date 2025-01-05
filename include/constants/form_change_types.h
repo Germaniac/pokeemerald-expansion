@@ -144,4 +144,6 @@
 // param2: ability to check, optional
 #define FORM_CHANGE_BATTLE_BEFORE_MOVE_CATEGORY 25
 
+#define FORM_CHANGE_BATTLE_TURN_START           26
+
 #endif // GUARD_CONSTANTS_FORM_CHANGE_TYPES_H

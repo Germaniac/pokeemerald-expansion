@@ -10790,6 +10790,7 @@ bool32 DoesSpeciesUseHoldItemToChangeForm(u16 species, u16 heldItemId)
             case FORM_CHANGE_BATTLE_ULTRA_BURST:
             case FORM_CHANGE_ITEM_HOLD:
             case FORM_CHANGE_BEGIN_BATTLE:
+            case FORM_CHANGE_BATTLE_TURN_START:
                 if (formChanges[i].param1 == heldItemId)
                     return TRUE;
                 break;
@@ -11018,6 +11019,12 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
                 case FORM_CHANGE_BATTLE_BEFORE_MOVE_CATEGORY:
                     if (formChanges[i].param1 == GetBattleMoveCategory(gCurrentMove)
                      && (formChanges[i].param2 == ABILITY_NONE || formChanges[i].param2 == GetBattlerAbility(battler)))
+                        targetSpecies = formChanges[i].targetSpecies;
+                    break;
+                case FORM_CHANGE_BATTLE_TURN_START:
+                    if (heldItem == formChanges[i].param1
+                     && gBattleMons[battler].moves[formChanges[i].param2] == gChosenMoveByBattler[battler]
+                     && (formChanges[i].param3 == ABILITY_NONE || formChanges[i].param3 == GetBattlerAbility(battler)))
                         targetSpecies = formChanges[i].targetSpecies;
                     break;
                 }
