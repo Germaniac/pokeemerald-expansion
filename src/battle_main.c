@@ -5231,7 +5231,7 @@ static bool32 TryDoFormChangesBeforeMoves(void)
 {
     if (!(gHitMarker & HITMARKER_RUN))
     {
-        u32 i, battler;
+        u32 i;
         u8 order[MAX_BATTLERS_COUNT];
 
         PopulateArrayWithBattlers(order);
