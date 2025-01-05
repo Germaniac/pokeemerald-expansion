@@ -5231,14 +5231,15 @@ static bool32 TryDoFormChangesBeforeMoves(void)
 {
     if (!(gHitMarker & HITMARKER_RUN))
     {
-        u32 i;
+        u32 i, battler;
         u8 order[MAX_BATTLERS_COUNT];
 
         PopulateArrayWithBattlers(order);
         SortBattlersBySpeed(order, FALSE);
         for (i = 0; i < gBattlersCount; i++)
         {
-            if (TryBattleFormChange(order[i], FORM_CHANGE_BATTLE_TURN_START))
+            battler = gBattlerAttacker = gBattleScripting.battler = order[i];
+            if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_TURN_START))
             {
                 BattleScriptPushCursorAndCallback(BattleScript_BattlerFormChangeWithStringEnd3);
                 return TRUE;
